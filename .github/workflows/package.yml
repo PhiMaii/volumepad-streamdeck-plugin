@@ -1,0 +1,43 @@
+name: Package Stream Deck Plugin
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build plugin
+        run: npm run build
+
+      - name: Package plugin
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}"
+          npx streamdeck pack "net.phimai.volumepad.streamdeck-remote.sdPlugin" `
+            --output "dist" `
+            --version "$version" `
+            --force `
+            --no-update-check
+
+      - name: Upload packaged plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: streamdeck-plugin-${{ github.ref_name }}
+          path: dist/*
