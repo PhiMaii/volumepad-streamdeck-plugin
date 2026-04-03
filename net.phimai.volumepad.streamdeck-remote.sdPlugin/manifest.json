@@ -1,0 +1,94 @@
+{
+	"Name": "Volumepad Remote",
+	"Version": "0.1.0.0",
+	"Author": "PhiMai",
+	"Actions": [
+		{
+			"Name": "Volume",
+			"UUID": "net.phimai.volumepad.streamdeck-remote.volume",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Shows current master volume and toggles mute on press.",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Change Volume",
+			"UUID": "net.phimai.volumepad.streamdeck-remote.change-volume",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Increase or decrease master volume by a configured step.",
+			"PropertyInspectorPath": "ui/change-volume.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Connection Status",
+			"UUID": "net.phimai.volumepad.streamdeck-remote.connection-status",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Displays backend/device connection state.",
+			"PropertyInspectorPath": "ui/connection-status.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Change Settings",
+			"UUID": "net.phimai.volumepad.streamdeck-remote.change-settings",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Apply one selected backend setting on key press.",
+			"PropertyInspectorPath": "ui/change-settings.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		}
+	],
+	"Category": "Volumepad Remote",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "A plugin to interface with the volumepad link app and control a volumepad device",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.5"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "net.phimai.volumepad.streamdeck-remote"
+}

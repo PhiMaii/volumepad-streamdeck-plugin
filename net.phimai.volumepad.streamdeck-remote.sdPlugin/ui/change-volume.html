@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Change Volume Settings</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 12px;
+            font-family: "Segoe UI", sans-serif;
+            color: #e5e7eb;
+            background: #0f172a;
+        }
+
+        .row {
+            display: grid;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        select,
+        input {
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 6px 8px;
+            color: #e2e8f0;
+            background: #1e293b;
+        }
+
+        #helper-text {
+            margin: 0;
+            font-size: 11px;
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <label for="direction">Direction</label>
+        <select id="direction">
+            <option value="Increase">Increase</option>
+            <option value="Decrease">Decrease</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <label for="step">Step (0.001..0.20)</label>
+        <input id="step" type="number" min="0.001" max="0.20" step="0.001" />
+    </div>
+
+    <p id="helper-text">Step range is clamped to 0.001..0.20.</p>
+
+    <script type="module" src="js/change-volume.js"></script>
+</body>
+</html>
+

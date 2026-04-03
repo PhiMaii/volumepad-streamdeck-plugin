@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Change Settings Action</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 12px;
+            font-family: "Segoe UI", sans-serif;
+            color: #e5e7eb;
+            background: #0f172a;
+        }
+
+        .row {
+            display: grid;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        select,
+        input {
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 6px 8px;
+            color: #e2e8f0;
+            background: #1e293b;
+        }
+
+        input[type="checkbox"] {
+            justify-self: start;
+            margin: 0;
+            width: 18px;
+            height: 18px;
+            padding: 0;
+            accent-color: #3b82f6;
+        }
+
+        input[type="color"] {
+            width: 100%;
+            min-height: 34px;
+            padding: 2px;
+        }
+
+        #number-range {
+            margin: 0;
+            font-size: 11px;
+            color: #a5b4fc;
+        }
+
+        #helper-text {
+            margin: 0;
+            font-size: 11px;
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <label for="setting-key">Setting</label>
+        <select id="setting-key"></select>
+    </div>
+
+    <div class="row" id="bool-row" hidden>
+        <label for="bool-value">Value</label>
+        <input id="bool-value" type="checkbox" />
+    </div>
+
+    <div class="row" id="number-row" hidden>
+        <label for="number-value">Value</label>
+        <input id="number-value" type="number" />
+        <p id="number-range"></p>
+    </div>
+
+    <div class="row" id="enum-row" hidden>
+        <label for="enum-value">Value</label>
+        <select id="enum-value"></select>
+    </div>
+
+    <div class="row" id="color-row" hidden>
+        <label for="color-value">Value</label>
+        <input id="color-value" type="color" />
+        <input id="color-hex" type="text" placeholder="#RRGGBB" />
+    </div>
+
+    <p id="helper-text">Select a setting and value to apply on key press.</p>
+
+    <script type="module" src="js/change-settings.js"></script>
+</body>
+</html>
+

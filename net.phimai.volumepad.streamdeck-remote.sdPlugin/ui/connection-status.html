@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Connection Status Settings</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 12px;
+            font-family: "Segoe UI", sans-serif;
+            color: #e5e7eb;
+            background: #0f172a;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 8px 10px;
+            margin-bottom: 12px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        input[type="color"] {
+            width: 46px;
+            height: 28px;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            background: #1e293b;
+            padding: 0;
+        }
+
+        #helper-text {
+            margin: 0;
+            font-size: 11px;
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <label for="connected-color">Connected</label>
+        <input id="connected-color" type="color" />
+
+        <label for="connecting-color">Connecting</label>
+        <input id="connecting-color" type="color" />
+
+        <label for="reconnecting-color">Reconnecting</label>
+        <input id="reconnecting-color" type="color" />
+
+        <label for="disconnected-color">Disconnected</label>
+        <input id="disconnected-color" type="color" />
+
+        <label for="error-color">Error</label>
+        <input id="error-color" type="color" />
+    </div>
+
+    <p id="helper-text">Pick colors for each connection state.</p>
+
+    <script type="module" src="js/connection-status.js"></script>
+</body>
+</html>
+
