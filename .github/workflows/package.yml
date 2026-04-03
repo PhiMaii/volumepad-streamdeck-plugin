@@ -3,7 +3,7 @@ name: Package Stream Deck Plugin
 on:
   push:
     tags:
-      - "*"
+      - 'v*.*.*'
   workflow_dispatch:
 
 jobs:
@@ -26,15 +26,24 @@ jobs:
       - name: Build plugin
         run: npm run build
 
-      - name: Package plugin
-        shell: pwsh
+      - name: Compute Stream Deck version
+        id: version
+        shell: bash
         run: |
-          $version = "${{ github.ref_name }}"
-          npx streamdeck pack "net.phimai.volumepad.streamdeck-remote.sdPlugin" `
-            --output "dist" `
-            --version "$version" `
-            --force `
+          TAG="${GITHUB_REF_NAME#v}"
+          VERSION="${TAG}.${GITHUB_RUN_NUMBER}"
+          echo "tag_version=$TAG" >> "$GITHUB_OUTPUT"
+          echo "streamdeck_version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Using Stream Deck version: $VERSION"
+
+      - name: Package plugin
+        run: |
+          npx streamdeck pack "net.phimai.volumepad.streamdeck-remote.sdPlugin" ^
+            --output "dist" ^
+            --version "${{ steps.version.outputs.streamdeck_version }}" ^
+            --force ^
             --no-update-check
+        shell: cmd
 
       - name: Upload packaged plugin
         uses: actions/upload-artifact@v4
