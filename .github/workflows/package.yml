@@ -40,7 +40,6 @@ jobs:
         run: |
           npx streamdeck pack "net.phimai.volumepad.streamdeck-remote.sdPlugin" ^
             --output "dist" ^
-            --version "${{ steps.version.outputs.streamdeck_version }}" ^
             --force ^
             --no-update-check
         shell: cmd
